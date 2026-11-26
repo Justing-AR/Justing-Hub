@@ -133,7 +133,7 @@ svg.i{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.8;
 .shead p{margin-top:6px;color:var(--fg-2);font-size:14px}
 
 /* tiles */
-.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);text-align:left;transition:border-color .15s,transform .15s,background .15s}
 .tile:hover{border-color:var(--accent-line);transform:translateY(-2px);background:var(--surface-2)}
 .tile.on{border-color:var(--accent);background:var(--accent-soft)}
@@ -250,6 +250,14 @@ footer a:hover{color:var(--accent)}
 .skel .line.w1{width:62%;height:16px}.skel .line.w2{width:94%}.skel .line.w3{width:48%}
 @keyframes shine{from{background-position:120% 0}to{background-position:-120% 0}}
 
+.contact{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:clamp(20px,3vw,30px);border:1px solid var(--line);border-radius:18px;background:radial-gradient(ellipse 70% 120% at 100% 0%,var(--glow-1),transparent 60%),var(--surface)}
+.contact-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--accent-soft);color:var(--accent);flex:none}
+.contact-ico svg{width:26px;height:26px}
+.contact-txt{flex:1;min-width:min(260px,100%)}
+.contact-txt h2{margin:8px 0 6px;font-size:clamp(20px,2.6vw,26px);letter-spacing:-.02em}
+.contact-txt p{color:var(--fg-2)}
+.contact-txt b{color:var(--fg);font-variant-numeric:tabular-nums}
+
 /* toasts */
 .toasts{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:100;display:grid;gap:8px;width:min(420px,calc(100% - 32px));transform:translateX(-50%);pointer-events:none}
 .toast{padding:12px 16px;border:1px solid var(--line-2);border-left:3px solid var(--ok);border-radius:10px;background:var(--surface-2);color:var(--fg);font-size:14px;box-shadow:var(--shadow);animation:in .25s ease}
@@ -260,9 +268,7 @@ footer a:hover{color:var(--accent)}
   .links{display:none}
   .menu-btn{display:inline-flex}
   .hero{grid-template-columns:minmax(0,1fr)}
-  .tiles{grid-template-columns:repeat(6,minmax(0,1fr))}
-  .tile{grid-column:span 2}
-  .tile:nth-child(n+4){grid-column:span 3}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tile{flex-direction:row;align-items:center}
   .tile-n{top:50%;transform:translateY(-50%)}
 }
@@ -278,8 +284,6 @@ footer a:hover{color:var(--accent)}
   .nav{gap:10px}
   .logo{font-size:15px;letter-spacing:.1em}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tile,.tile:nth-child(n+4){grid-column:span 1}
-  .tile:last-child{grid-column:span 2}
   .tile{flex-direction:column;align-items:flex-start}
   .tile-n{top:14px;transform:none}
   .shead{flex-direction:column;align-items:flex-start}
@@ -311,6 +315,7 @@ footer a:hover{color:var(--accent)}
   <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
   <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-6 4.5V5z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
   <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8z"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 2.9 8 7 10 4.1-2 7-5.5 7-10V6l-7-3z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
@@ -325,7 +330,7 @@ footer a:hover{color:var(--accent)}
     <nav class="links" aria-label="Principal">
       <a href="#categorias">Categorías</a>
       <a href="#catalogo">Catálogo</a>
-      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
     </nav>
     <div class="actions">
       <button class="btn ghost icon" type="button" data-act="focus-search" aria-label="Buscar en el catálogo"><svg class="i"><use href="#i-search"/></svg></button>
@@ -337,7 +342,7 @@ footer a:hover{color:var(--accent)}
   <nav class="mnav wrap" id="mnav" aria-label="Menú móvil">
     <a href="#categorias">Categorías</a>
     <a href="#catalogo">Catálogo</a>
-    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 </header>
 
@@ -356,11 +361,11 @@ footer a:hover{color:var(--accent)}
   <section class="wrap hero" aria-labelledby="h1">
     <div class="hero-main">
       <div class="eyebrow">Plataforma digital · JUSTING AR</div>
-      <h1 id="h1">Descubrí. Descargá.<br><span>Creá sin límites.</span></h1>
-      <p class="lead">Aplicaciones, juegos, herramientas web y proyectos seleccionados en un solo portal. Todo publicado y mantenido por su creador.</p>
+      <h1 id="h1">Descubrí. <span>Descargá.</span></h1>
+      <p class="lead">Aplicaciones, juegos, herramientas web y recursos seleccionados en un solo portal. Todo publicado y mantenido por su creador.</p>
       <div class="cta">
         <a class="btn" href="#catalogo">Explorar catálogo <svg class="i"><use href="#i-arrow"/></svg></a>
-        <a class="btn ghost" href="#proyectos">Ver proyectos</a>
+        <a class="btn ghost" href="https://wa.me/50589983467?text=Hola%2C%20vengo%20de%20JUSTING%20HUB.%20Quiero%20pedir%20un%20tutorial." target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-chat"/></svg>Pedir un tutorial</a>
       </div>
     </div>
     <aside class="panel" id="stats" aria-label="Estado del catálogo"></aside>
@@ -395,15 +400,15 @@ footer a:hover{color:var(--accent)}
     <div class="cards" id="cards"></div>
   </section>
 
-  <section class="wrap section" id="proyectos" aria-labelledby="hProj">
-    <div class="shead"><div><div class="eyebrow">Hecho por Justing AR</div><h2 id="hProj">Proyectos exclusivos</h2><p>Un espacio para mostrar creaciones propias.</p></div></div>
-    <div class="feature">
-      <div class="fbox"><div class="fi"><svg class="i"><use href="#i-bolt"/></svg></div><div class="eyebrow">Laboratorio creativo</div><h3>Ideas que se convierten en proyectos</h3><p>Páginas, herramientas, videojuegos y experimentos digitales, publicados a medida que están listos.</p></div>
-      <div class="fbox"><div class="fi"><svg class="i"><use href="#i-shield"/></svg></div><div class="eyebrow">Contenido seleccionado</div><h3>Un portal con identidad propia</h3><p>Una biblioteca ordenada y fácil de recorrer, administrada por su creador.</p></div>
-    </div>
-    <div id="projWrap" hidden>
-      <div class="subhead">Proyectos publicados</div>
-      <div class="cards" id="projCards"></div>
+  <section class="wrap section" id="contacto" aria-labelledby="hContact">
+    <div class="contact">
+      <div class="contact-ico"><svg class="i"><use href="#i-chat"/></svg></div>
+      <div class="contact-txt">
+        <div class="eyebrow">Contacto</div>
+        <h2 id="hContact">Peticiones de tutoriales o algo más, al privado</h2>
+        <p>Escribime por WhatsApp al <b>+505 8998 3467</b>.</p>
+      </div>
+      <a class="btn" href="https://wa.me/50589983467?text=Hola%2C%20vengo%20de%20JUSTING%20HUB.%20Quiero%20pedir%20un%20tutorial." target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-chat"/></svg>Escribir por WhatsApp</a>
     </div>
   </section>
 </main>
@@ -411,7 +416,7 @@ footer a:hover{color:var(--accent)}
 <footer>
   <div class="wrap">
     <span>© 2026 JUSTING HUB · Una plataforma de Justing AR</span>
-    <div class="flinks"><a href="#categorias">Categorías</a><a href="#catalogo">Catálogo</a><a href="#proyectos">Proyectos</a><a href="#inicio">Volver arriba</a></div>
+    <div class="flinks"><a href="#categorias">Categorías</a><a href="#catalogo">Catálogo</a><a href="#contacto">Contacto</a><a href="#inicio">Volver arriba</a></div>
   </div>
 </footer>
 
@@ -550,9 +555,8 @@ try{if(window.supabase&&typeof window.supabase.createClient==='function')sb=wind
 var CATS=[
   {key:'APK',k:'apk',label:'Aplicaciones APK',short:'APK',hint:'Apps para Android',icon:'phone'},
   {key:'Juego',k:'game',label:'Juegos',short:'Juegos',hint:'Gaming y entretenimiento',icon:'game'},
-  {key:'Página web',k:'web',label:'Páginas web',short:'Páginas web',hint:'Proyectos online',icon:'globe'},
-  {key:'Herramienta',k:'tool',label:'Herramientas',short:'Herramientas',hint:'Utilidades digitales',icon:'tool'},
-  {key:'Proyecto',k:'proj',label:'Proyectos',short:'Proyectos',hint:'Creaciones originales',icon:'rocket'}
+  {key:'Página web',k:'web',label:'Páginas web',short:'Páginas web',hint:'Sitios online',icon:'globe'},
+  {key:'Herramienta',k:'tool',label:'Herramientas',short:'Herramientas',hint:'Utilidades digitales',icon:'tool'}
 ];
 function catInfo(k){for(var i=0;i<CATS.length;i++)if(CATS[i].key===k)return CATS[i];return CATS[2]}
 var STARTER=[
@@ -568,7 +572,7 @@ function sanitize(r){
   var cr=+r.created;
   return {
     id:typeof r.id==='string'&&r.id?r.id.slice(0,64):uid(),
-    name:name,cat:ok?r.cat:'Proyecto',
+    name:name,cat:ok?r.cat:'Página web',
     desc:clip(r.desc,220),version:clip(r.version,24),
     link:cleanUrl(r.link),image:cleanUrl(r.image,true),
     created:isFinite(cr)&&cr>0?cr:0
@@ -667,17 +671,12 @@ function renderCatalog(){
   }
   $('#resultCount').textContent=(state.loading&&!state.items.length)?'Cargando…':list.length+(list.length===1?' recurso':' recursos')+(state.cat!=='Todos'?' en '+catInfo(state.cat).short:'');
 }
-function renderProjects(){
-  var list=state.items.filter(function(x){return x.cat==='Proyecto'}).sort(sorters.recent);
-  $('#projWrap').hidden=!list.length;
-  $('#projCards').innerHTML=list.map(cardHTML).join('');
-}
 function renderAdmin(){
   $('#adminBar').hidden=!state.admin;
   $('#btnLogin').hidden=state.admin;
   $('#adminMail').textContent=state.email?' · '+state.email:'';
 }
-function renderAll(){renderStats();renderTiles();renderChips();renderCatalog();renderProjects();renderAdmin()}
+function renderAll(){renderStats();renderTiles();renderChips();renderCatalog();renderAdmin()}
 
 /* ---------- carga desde la base de datos ---------- */
 function refresh(manual){
@@ -736,7 +735,7 @@ function openDlg(d){if(!d.open)d.showModal()}
 function showDetail(id){
   var x=state.items.filter(function(i){return i.id===id})[0];if(!x)return;
   var c=catInfo(x.cat);
-  var label=(x.cat==='APK'||x.cat==='Juego')?'Descargar / Abrir':'Visitar proyecto';
+  var label=(x.cat==='APK'||x.cat==='Juego')?'Descargar / Abrir':'Visitar página';
   var admin=state.admin?'<button class="btn ghost" type="button" data-act="edit" data-id="'+esc(x.id)+'"><svg class="i"><use href="#i-edit"/></svg>Editar</button><button class="btn danger" type="button" data-act="del" data-id="'+esc(x.id)+'"><svg class="i"><use href="#i-trash"/></svg>Eliminar</button>':'';
   $('#detailBody').innerHTML=
     '<div class="dlg-head"><div class="eyebrow">'+esc(c.label)+'</div><button class="btn ghost icon sm" type="button" data-close aria-label="Cerrar"><svg class="i"><use href="#i-close"/></svg></button></div>'+
